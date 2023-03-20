@@ -1,0 +1,51 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+		String input="";
+		System.out.println("Hi, Welcome to the game Stone, Paper, Scissor");
+		String computer=generator();
+			System.out.print("Enter your name: ");
+		String name=sc.nextLine();
+			System.out.println("If you wish to discontinue you can enter quit...");
+		while(true){
+		System.out.print(name+", Enter the input : ");
+		 input=sc.nextLine();
+		 
+		 if(!input.equalsIgnoreCase("Stone") && !input.equalsIgnoreCase("Paper") && !input.equalsIgnoreCase("Scissor") && !input.equalsIgnoreCase("quit")){
+		     System.out.println("Invalid input");
+		 }
+		 else if(!input.equalsIgnoreCase("quit")){
+		 System.out.println(computer);
+		 if(input.equalsIgnoreCase("Stone") && computer.equalsIgnoreCase("Paper")){
+		     System.out.println("You lose!!");
+		 }
+		 else if(input.equalsIgnoreCase("Paper") && computer.equalsIgnoreCase("Scissor")){
+		     System.out.println("You lose!!");
+		 }
+		 else if(input.equalsIgnoreCase(computer)){
+		     System.out.println("Tie...");
+		 }
+		 else if(input.equalsIgnoreCase("Scissor") && computer.equalsIgnoreCase("Stone")){
+		     System.out.println("You lose!!");
+		 }
+		 else{
+		     System.out.println("You win");
+		 }
+		 }
+		else if(input.equals("quit")){
+		    break;}
+		}
+	}
+	public static String generator(){
+	    Random r=new Random();
+	    int x=r.nextInt(3);
+	    switch (x){
+	        case (0):  return "Paper";
+	        case (1):  return "Stone";
+	        case (2):  return "Scissor";
+	        default: return "Try after sometime";
+	    }
+	}
+}
